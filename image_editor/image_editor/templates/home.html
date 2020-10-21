@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Главная страница</title>
+  </head>
+  <body>
+    <h4 style="margin-right: 40px;"><a href="{% url 'editor:upload' %}">+ Добавить изображение</a></h4>
+    <h2 style="margin-left: 40px; margin-top: 40px;">Список изображений</h2>
+    <div style="margin-left: 40px; margin-top: 40px;">
+      {% for image in images %}
+        <p><a href="{{ image.get_absolute_url }}">{{ image.name }}</a></p>
+      {% endfor %}
+    </div>
+
+  </body>
+</html>

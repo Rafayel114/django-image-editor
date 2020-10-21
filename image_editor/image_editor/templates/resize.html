@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Изменить размер</title>
+  </head>
+  <body>
+    <a href="{% url 'editor:home' %}"><<Назад к списку</a>
+    <br />
+    <h3>{{ image.name }} size {{img.height}} x {{img.width}}</h3>
+    <br />
+    <div>
+      <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Resize</button>
+      </form>
+      <br />
+      <img src='{{ img.url }}' />
+    </div>
+  </body>
+</html>
